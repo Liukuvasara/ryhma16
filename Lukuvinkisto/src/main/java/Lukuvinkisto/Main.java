@@ -5,6 +5,8 @@
  */
 package Lukuvinkisto;
 
+import lukuvinkisto.io.InputIO;
+
 /**
  *
  * @author lauri
@@ -16,6 +18,15 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        run();
+    }
+    
+    public static void run(){
+        while (true){
+            System.out.println("Give input: ");
+            String input = InputIO.readInput();
+            if(input.equals("")) break;
+        }
     }
     
 }
