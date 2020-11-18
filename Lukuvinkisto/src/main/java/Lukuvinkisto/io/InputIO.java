@@ -26,8 +26,6 @@ public class InputIO {
         if (input[0].toLowerCase().equals("hae")){
             System.out.println("T‰m‰n pit‰isi tarkastaa ett‰ j‰rjestelm‰ss‰ on " + input[1] + " nimell‰ '" + input[2]);
         } else if (input[0].toLowerCase().equals("lisaa")){
-            System.out.println("T‰m‰n pit‰isi lis‰t‰ " + input[1] + " nimelt‰ '" + input[2] + "' j‰rjestelm‰‰n.");
-            
             
             Book book = BookIO.NewBookTip();
             
@@ -38,9 +36,9 @@ public class InputIO {
     
     private static boolean validateInput(String[] input){
         return 
-                input.length == 3 && 
-                (input[0].toLowerCase().equals("hae") || input[0].toLowerCase().equals("lisaa")) &&
-                (input[1].toLowerCase().equals("kirja"));
+                ((input.length == 3 && input[0].toLowerCase().equals("hae")) ||
+                (input.length == 2 && input[0].toLowerCase().equals("lisaa"))) 
+                && (input[1].toLowerCase().equals("kirja"));
     }
     
 }
