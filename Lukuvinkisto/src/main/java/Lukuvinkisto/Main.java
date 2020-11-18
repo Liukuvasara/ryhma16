@@ -16,7 +16,7 @@ public class Main {
     public static void run(){
         while (true){
             
-            System.out.println("\nGive input: ");
+            System.out.println("\nAnna syöte: ");
             String[] input = InputIO.readInput().split(" ", 3);
             
             if(input[0].equals("")) break;

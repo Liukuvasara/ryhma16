@@ -5,6 +5,7 @@
  */
 package lukuvinkisto.io;
 
+import Lukuvinkisto.Book;
 import java.util.Scanner;
 
 /**
@@ -22,10 +23,14 @@ public class InputIO {
             System.out.println("Ei hyvaksyttava syote.");
             return;
         }
-        if (input[0].toLowerCase().equals("get")){
-            System.out.println("This should check if there is a " + input[1] + " with the title of '" + input[2] + "' in the database.");
-        } else if (input[0].toLowerCase().equals("add")){
-            System.out.println("This should add a " + input[1] + " with the title of '" + input[2] + "' into the database.");
+        if (input[0].toLowerCase().equals("hae")){
+            System.out.println("T‰m‰n pit‰isi tarkastaa ett‰ j‰rjestelm‰ss‰ on " + input[1] + " nimell‰ '" + input[2]);
+        } else if (input[0].toLowerCase().equals("lisaa")){
+            System.out.println("T‰m‰n pit‰isi lis‰t‰ " + input[1] + " nimelt‰ '" + input[2] + "' j‰rjestelm‰‰n.");
+            
+            
+            Book book = BookIO.NewBookTip();
+            
         } else {
             System.out.println("Ei hyvaksyttava syote.");
         }
@@ -34,8 +39,8 @@ public class InputIO {
     private static boolean validateInput(String[] input){
         return 
                 input.length == 3 && 
-                (input[0].toLowerCase().equals("add") || input[0].toLowerCase().equals("get")) &&
-                (input[1].toLowerCase().equals("book"));
+                (input[0].toLowerCase().equals("hae") || input[0].toLowerCase().equals("lisaa")) &&
+                (input[1].toLowerCase().equals("kirja"));
     }
     
 }
