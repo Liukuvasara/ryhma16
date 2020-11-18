@@ -19,7 +19,7 @@ public class InputIO {
     }
     public static void manageInput(String[] input){
         if (!validateInput(input)) {
-            System.out.println("Not a valid input.");
+            System.out.println("Ei hyvaksyttava syote.");
             return;
         }
         if (input[0].toLowerCase().equals("get")){
@@ -27,7 +27,7 @@ public class InputIO {
         } else if (input[0].toLowerCase().equals("add")){
             System.out.println("This should add a " + input[1] + " with the title of '" + input[2] + "' into the database.");
         } else {
-            System.out.println("Not a valid input.");
+            System.out.println("Ei hyvaksyttava syote.");
         }
     }
     

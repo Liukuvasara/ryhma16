@@ -15,14 +15,13 @@ public class Main {
     
     public static void run(){
         while (true){
-            System.out.println("Give input: ");
-            String input = InputIO.readInput();
-            if(input.equals("")) break;
-            if(input.equals("l") || input.equals("L")) {
-                Book book = BookIO.NewBookTip();
-                System.out.println("Lisätty: "+ book);
-                // tähän vinkin tallennus
-            }
+            
+            System.out.println("\nGive input: ");
+            String[] input = InputIO.readInput().split(" ", 3);
+            
+            if(input[0].equals("")) break;
+            else InputIO.manageInput(input);
+            
         }
     }
     
