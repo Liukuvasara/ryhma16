@@ -23,10 +23,18 @@ public class Main {
     
     public static void run(){
         while (true){
-            System.out.println("Give input: ");
-            String input = InputIO.readInput();
-            if(input.equals("")) break;
+            System.out.println("\nGive input: ");
+            String[] input = InputIO.readInput().split(" ", 3);
+            
+            if(input[0].equals("")) break;
+            else InputIO.manageInput(input);
+            
+            
         }
     }
+    
+    
+        
+    
     
 }
