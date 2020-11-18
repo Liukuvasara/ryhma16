@@ -26,9 +26,9 @@ public class InputIO {
         if (input[0].toLowerCase().equals("hae")){
             System.out.println("Tämän pitäisi tarkastaa että järjestelmässä on " + input[1] + " nimellä '" + input[2]);
         } else if (input[0].toLowerCase().equals("lisaa")){
-            
-            Book book = BookIO.NewBookTip();
-            
+            if(input[1].toLowerCase().equals("kirja")){
+                Book book = BookIO.NewBookTip();
+            }
         } else {
             System.out.println("Ei hyvaksyttava syote.");
         }
