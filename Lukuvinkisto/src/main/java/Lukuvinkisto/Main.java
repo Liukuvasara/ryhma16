@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Lukuvinkisto;
 
+import lukuvinkisto.io.BookIO;
 import lukuvinkisto.io.InputIO;
 
-/**
- *
- * @author lauri
- */
 public class Main {
 
     /**
@@ -23,13 +15,14 @@ public class Main {
     
     public static void run(){
         while (true){
-            System.out.println("\nGive input: ");
-            String[] input = InputIO.readInput().split(" ", 3);
-            
-            if(input[0].equals("")) break;
-            else InputIO.manageInput(input);
-            
-            
+            System.out.println("Give input: ");
+            String input = InputIO.readInput();
+            if(input.equals("")) break;
+            if(input.equals("l") || input.equals("L")) {
+                Book book = BookIO.NewBookTip();
+                System.out.println("Lisätty: "+ book);
+                // tähän vinkin tallennus
+            }
         }
     }
     
