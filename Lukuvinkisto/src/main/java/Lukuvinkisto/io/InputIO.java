@@ -18,27 +18,5 @@ public class InputIO {
     public static String readInput(){
         return SCANNER.nextLine();
     }
-    public static void manageInput(String[] input){
-        if (!validateInput(input)) {
-            System.out.println("Ei hyvaksyttava syote.");
-            return;
-        }
-        if (input[0].toLowerCase().equals("hae")){
-            System.out.println("Tämän pitäisi tarkastaa että järjestelmässä on " + input[1] + " nimellä '" + input[2]);
-        } else if (input[0].toLowerCase().equals("lisaa")){
-            
-            Book book = BookIO.NewBookTip();
-            
-        } else {
-            System.out.println("Ei hyvaksyttava syote.");
-        }
-    }
-    
-    private static boolean validateInput(String[] input){
-        return 
-                ((input.length == 3 && input[0].toLowerCase().equals("hae")) ||
-                (input.length == 2 && input[0].toLowerCase().equals("lisaa"))) 
-                && (input[1].toLowerCase().equals("kirja"));
-    }
-    
+   
 }

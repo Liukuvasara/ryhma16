@@ -1,7 +1,6 @@
 package Lukuvinkisto;
 
 import lukuvinkisto.io.BookIO;
-import lukuvinkisto.io.InputIO;
 
 public class Main {
 
@@ -14,13 +13,14 @@ public class Main {
     }
     
     public static void run(){
+        IO io = new KonsoliIO();
+        BookIO bookIO = new BookIO(io);
         while (true){
-            
-            System.out.println("\nAnna syöte: ");
-            String[] input = InputIO.readInput().split(" ", 3);
+            io.print("\nAnna syÃ¶te: ");
+            String[] input = io.nextLine().split(" ", 3);
             
             if(input[0].equals("")) break;
-            else InputIO.manageInput(input);
+            else bookIO.manageInput(input);
             
         }
     }
