@@ -13,15 +13,15 @@ public class BookIO {
     
     public void manageInput(String[] input){
         if (!validateInput(input)) {
-            System.out.println("Ei hyvaksyttava syote.");
+            io.print("Ei hyvaksyttava syote.");
             return;
         }
         if (input[0].toLowerCase().equals("hae")){
-            System.out.println("Tämän pitäisi tarkastaa että järjestelmässä on " + input[1] + " nimellä '" + input[2]);
+            io.print("Tämän pitäisi tarkastaa että järjestelmässä on " + input[1] + " nimellä '" + input[2]);
         } else if (input[0].toLowerCase().equals("lisaa")){
             Book book = NewBookTip();
         } else {
-            System.out.println("Ei hyvaksyttava syote.");
+            io.print("Ei hyvaksyttava syote.");
         }
     }
     
@@ -37,13 +37,13 @@ public class BookIO {
     }
     
     public Book NewBookTip() {
-        System.out.println("Lisätään uusi kirja");
-        System.out.println("Anna kirjan otsikko: ");
-        String title = InputIO.readInput();
-        System.out.println("Anna kirjan tekijä (Sukunimi, Etunimi): ");
-        String author = InputIO.readInput();
-        System.out.println("Anna kirjan sivumäärä: ");
-        int pages = Integer.parseInt(InputIO.readInput());
+        io.print("Lisätään uusi kirja");
+        io.print("Anna kirjan otsikko: ");
+        String title = io.nextLine();
+        io.print("Anna kirjan tekijä (Sukunimi, Etunimi): ");
+        String author = io.nextLine();
+        io.print("Anna kirjan sivumäärä: ");
+        int pages = Integer.parseInt(io.nextLine());
         Book book = new Book(title, author, pages);
         return book;
     }
