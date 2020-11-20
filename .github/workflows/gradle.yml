@@ -24,3 +24,5 @@ jobs:
       run: chmod +x Lukuvinkisto/gradlew
     - name: Test with Gradle
       run: Lukuvinkisto/gradlew -p Lukuvinkisto test
+    - name: checkstyle
+      run: Lukuvinkisto/gradlew checkstyleMain
