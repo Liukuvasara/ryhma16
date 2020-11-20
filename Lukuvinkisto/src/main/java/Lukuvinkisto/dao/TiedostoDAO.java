@@ -38,10 +38,12 @@ public class TiedostoDAO {
         } else {
             try {
                 Connection db = DriverManager.getConnection("jdbc:sqlite:" + fileName + ".db");
-                db.createStatement().execute("CREATE TABLE IF NOT EXISTS Books(id INTEGER PRIMARY KEY, title TEXT UNIQUE NOT NULL, author TEXT, paged INTEGER, genres TEXT, description TEXT)");
+                db.createStatement().execute("CREATE TABLE Books (book_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL UNIQUE, author TEXT, paged TEXT, genres TEXT, description TEXT);");
                 return 2;
             } catch (SQLException ex) {
+                ex.printStackTrace();
                 return 3;
+                
             }
         }
 

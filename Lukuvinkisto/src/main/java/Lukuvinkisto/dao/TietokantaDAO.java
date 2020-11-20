@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,7 +42,7 @@ public class TietokantaDAO {
     public Connection createConnection() {
         try {
             Class.forName("org.sqlite.JDBC");
-            Connection givenConnection = DriverManager.getConnection("jdbc:sqlite:" + kirjasto);
+            Connection givenConnection = DriverManager.getConnection("jdbc:sqlite:" + kirjasto + ".db");
             return givenConnection;
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(TietokantaDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -59,13 +60,13 @@ public class TietokantaDAO {
      * @param description kuvaus kirjasta
      * @return true: lisäys onnistui false: lisäys epäonnistui
      */
-    public boolean addBook(String title, String author, Integer paged, String genres, String description) {
+    public boolean addBook(String title, String author, String paged, String genres, String description) {
         try {
             Connection dM = createConnection();
             PreparedStatement p = dM.prepareStatement("INSERT INTO Books(title, author, paged, genres, description) VALUES (?, ?, ?, ?, ?)");
             p.setString(1, title);
             p.setString(2, author);
-            p.setInt(3, paged);
+            p.setString(3, paged);
             p.setString(4, genres);
             p.setString(5, description);
             p.executeUpdate();
