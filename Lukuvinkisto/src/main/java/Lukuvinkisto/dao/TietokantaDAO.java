@@ -27,10 +27,10 @@ public class TietokantaDAO {
     /**
      * Luo hallintapohjan
      *
-     * @param course tietokanta
+     * @param kirjasto tietokanta
      */
-    public TietokantaDAO(String course) {
-        this.kirjasto = course;
+    public TietokantaDAO(String kirjasto) {
+        this.kirjasto = kirjasto;
     }
 
     /**
@@ -103,9 +103,9 @@ public class TietokantaDAO {
     /**
      * Listaa kaikki kirjat tietokannassa
      *
-     * @return lista kirjoista, null jos kirjojen haku epäonnistui
+     * @return lista kirjoista aakkosjärjestyksessä, null jos kirjojen haku epäonnistui
      */
-    public ArrayList<String> listTerms() {
+    public ArrayList<String> listBooks() {
         try {
             ArrayList<String> toReturn = new ArrayList<>();
             Connection dM = createConnection();
@@ -117,6 +117,7 @@ public class TietokantaDAO {
                 toReturn.add(r.getString(1));
             }
             dM.close();
+            Collections.sort(toReturn);
             return toReturn;
         } catch (SQLException ex) {
             return null;
