@@ -25,4 +25,4 @@ jobs:
     - name: Test with Gradle
       run: Lukuvinkisto/gradlew -p Lukuvinkisto test
     - name: checkstyle
-      run: Lukuvinkisto/gradlew checkstyleMain
+      run: Lukuvinkisto/gradlew -p Lukuvinkisto checkstyleMain
