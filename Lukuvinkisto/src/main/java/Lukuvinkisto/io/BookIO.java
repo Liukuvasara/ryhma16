@@ -20,7 +20,8 @@ public class BookIO implements MediaInterface {
      *
      * @return List of all books
      */
-    public static List<Book> fetch(){
+    @Override
+    public List<Book> fetch(){
         return null;
     }
 

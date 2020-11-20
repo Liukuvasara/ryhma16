@@ -17,7 +17,9 @@ public interface MediaInterface {
     Book NewTip(InputInterface inputIO);
 
     void add(Book book);
-
+    
+    List<Book> fetch();
+    
     /** Fetches all books from the database witch match given input.
      *
      * @param input Searches all works containing input string. Input string can be author part of, or whole name of the name of the book or author.

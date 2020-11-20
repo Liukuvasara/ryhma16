@@ -42,7 +42,7 @@ public class InputIO implements InputInterface {
             System.out.println("Tämän pitäisi tarkastaa että järjestelmässä on " + input[1] + " nimellä '" + input[2]);
             List<Book> books;
             if(input[2].equals("all")) {
-                books = BookIO.fetch();
+                books = bookIO.fetch();
             } else {
                 books = bookIO.fetch(input[2]);
             }
