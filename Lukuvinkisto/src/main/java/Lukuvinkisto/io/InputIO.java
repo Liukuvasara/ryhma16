@@ -39,6 +39,7 @@ public class InputIO {
     private static boolean validateInput(String[] input){
         return 
                 ((input.length == 3 && input[0].toLowerCase().equals("hae")) ||
+                (input.length == 4 && input[0].toLowerCase().equals("ohje")) ||
                 (input.length == 2 && input[0].toLowerCase().equals("lisaa"))) 
                 && (input[1].toLowerCase().equals("kirja"));
     }
