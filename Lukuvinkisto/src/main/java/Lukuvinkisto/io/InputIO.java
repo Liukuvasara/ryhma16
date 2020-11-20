@@ -24,11 +24,13 @@ public class InputIO {
             return;
         }
         if (input[0].toLowerCase().equals("hae")){
-            System.out.println("Tämän pitäisi tarkastaa että järjestelmässä on " + input[1] + " nimellä '" + input[2]);
+            System.out.println("Tï¿½mï¿½n pitï¿½isi tarkastaa ettï¿½ jï¿½rjestelmï¿½ssï¿½ on " + input[1] + " nimellï¿½ '" + input[2]);
         } else if (input[0].toLowerCase().equals("lisaa")){
             if(input[1].toLowerCase().equals("kirja")){
                 Book book = BookIO.NewBookTip();
             }
+        } else if (input[0].toLowerCase().equals("ohjeet")) {
+            System.out.println("\nKOMENNOT\nohjeet - tulostaa ohjeet\nhae - tarkistaa, onko nimellÃ¤ tallennettu lukuvinkkiÃ¤\nlisaa - lisÃ¤Ã¤ uuden lukuvinkin");
         } else {
             System.out.println("Ei hyvaksyttava syote.");
         }
