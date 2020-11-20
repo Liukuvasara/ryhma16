@@ -16,14 +16,16 @@ public class Main {
     public static void run(){
         
         InputIO.printGuide();
-                
+        
+        InputIO io = new InputIO(new BookIO());
+        
         while (true){
             
             System.out.println("\nAnna syöte: ");
-            String[] input = InputIO.readInput().split(" ", 3);
+            String[] input = io.readInput().split(" ", 3);
             
             if(input[0].equals("")) break;
-            else InputIO.manageInput(input);
+            else io.manageInput(input);
             
         }
     }

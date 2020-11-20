@@ -6,6 +6,8 @@
 package lukuvinkisto.io;
 
 import Lukuvinkisto.Book;
+import Lukuvinkisto.io.InputInterface;
+import Lukuvinkisto.io.MediaInterface;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,17 +15,25 @@ import java.util.Scanner;
  *
  * @author Sami
  */
-public class InputIO {
+public class InputIO implements InputInterface {
     private static final Scanner SCANNER = new Scanner(System.in);
     
     private static final String ADD_COMMAND = "lisaa";
     private static final String GET_COMMAND = "hae";
     private static final String GUIDE_COMMAND = "ohjeet";
     
-    public static String readInput(){
+    private MediaInterface bookIO;
+    
+    public InputIO(MediaInterface bIO) {
+        bookIO = bIO;
+    }
+    
+    @Override
+    public String readInput(){
         return SCANNER.nextLine();
     }
-    public static void manageInput(String[] input){
+    @Override
+    public void manageInput(String[] input){
         if (!validateInput(input)) {
             System.out.println("Ei hyväksyttävä syote.");
             return;
@@ -32,17 +42,17 @@ public class InputIO {
             System.out.println("Tämän pitäisi tarkastaa että järjestelmässä on " + input[1] + " nimellä '" + input[2]);
             List<Book> books;
             if(input[2].equals("all")) {
-                books = BookIO.fetchBooks();
+                books = BookIO.fetch();
             } else {
-                books = BookIO.fetchBooks(input[2]);
+                books = bookIO.fetch(input[2]);
             }
             if(books != null){
                 books.forEach(book -> System.out.println(book.toString()));
             }
         } else if (input[0].toLowerCase().equals(ADD_COMMAND)){
             if(input[1].toLowerCase().equals("kirja")){
-                Book book = BookIO.NewBookTip();
-                BookIO.addBook(book);
+                Book book = bookIO.NewTip((InputInterface) this);
+                bookIO.add(book);
             }
         } else if (input[0].toLowerCase().equals(GUIDE_COMMAND)) {
             printGuide();
