@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  */
 public class TietokantaDAO {
     
-    String course;
+    String kirjasto;
 
     /**
      * Luo hallintapohjan
@@ -30,7 +30,7 @@ public class TietokantaDAO {
      * @param course tietokanta
      */
     public TietokantaDAO(String course) {
-        this.course = course;
+        this.kirjasto = course;
     }
 
     /**
@@ -41,7 +41,7 @@ public class TietokantaDAO {
     public Connection createConnection() {
         try {
             Class.forName("org.sqlite.JDBC");
-            Connection givenConnection = DriverManager.getConnection("jdbc:sqlite:" + course);
+            Connection givenConnection = DriverManager.getConnection("jdbc:sqlite:" + kirjasto);
             return givenConnection;
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(TietokantaDAO.class.getName()).log(Level.SEVERE, null, ex);
