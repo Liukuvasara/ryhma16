@@ -6,6 +6,7 @@
 package lukuvinkisto.io;
 
 import Lukuvinkisto.Book;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -29,9 +30,19 @@ public class InputIO {
         }
         if (input[0].toLowerCase().equals(GET_COMMAND)){
             System.out.println("Tämän pitäisi tarkastaa että järjestelmässä on " + input[1] + " nimellä '" + input[2]);
+            List<Book> books;
+            if(input[2].equals("all")) {
+                books = BookIO.fetchBooks();
+            } else {
+                books = BookIO.fetchBooks(input[2]);
+            }
+            if(books != null){
+                books.forEach(book -> System.out.println(book.toString()));
+            }
         } else if (input[0].toLowerCase().equals(ADD_COMMAND)){
             if(input[1].toLowerCase().equals("kirja")){
                 Book book = BookIO.NewBookTip();
+                BookIO.addBook(book);
             }
         } else if (input[0].toLowerCase().equals(GUIDE_COMMAND)) {
             printGuide();
@@ -39,6 +50,7 @@ public class InputIO {
             System.out.println("Ei hyväksyttävä syote.");
         }
     }
+    
     public static void printGuide(){
         System.out.println("\nKOMENNOT\n" + GUIDE_COMMAND + " - tulostaa ohjeet\n" + GET_COMMAND + " - tarkistaa, onko nimellä tallennettu lukuvinkkiä\n" + ADD_COMMAND + " - lisää uuden lukuvinkin");
     }
