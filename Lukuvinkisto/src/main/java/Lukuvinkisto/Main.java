@@ -15,7 +15,7 @@ public class Main {
     
     public static void run(){
         
-        System.out.println("\nKOMENNOT\nohjeet - tulostaa ohjeet\nhae - tarkistaa, onko nimellä tallennettu lukuvinkkiä\nlisaa - lisää uuden lukuvinkin");
+        InputIO.printGuide();
                 
         while (true){
             
