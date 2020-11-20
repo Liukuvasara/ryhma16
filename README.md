@@ -14,9 +14,9 @@ Lisää tehdyt taskit Seuranta-välilehdelle.
 
 ### Ohjelman asennusohje
 
-1. Lataa ohjelma Githubista (komento 'git clone').
+1. Lataa ohjelma Githubista (komento *git clone*).
 2. Avaa ohjelmakansio.
-3. Suorita ohjelma komentoriviltä komennolla 'gradle run'.
+3. Suorita ohjelma komentoriviltä komennolla *gradle run*.
 
 ### Käyttöohje
 
