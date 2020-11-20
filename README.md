@@ -18,12 +18,14 @@ Lisää tehdyt taskit Seuranta-välilehdelle.
 2. Avaa ohjelmakansio.
 3. Suorita ohjelma komentoriviltä komennolla 'gradle run'.
 
-### Käyttöhoje
+### Käyttöohje
 
 Ohjelma toimii komentoriviltä. Käytössä ovat tällä hetkellä komennot:
 
 ohjeet - Tulostaa käytettävissä olevat komennot.
+
 lisaa - Lisää kirjastoon uuden kirjavinkin.
+
 hae - Hakee kirjastosta kirjavinkin nimellä.
 
 ### Definition of done
