@@ -37,3 +37,12 @@ Taski on suoritettu "definition of donen" tasolla, kun
 4. Toinen henkilö on tarkastanut ko. testit. Testit toimivat odotetusti.
 5. Koodiin liittyvä dokumentaatio on lisätty  ohjelman ohjeisiin ja tarvittaessa README-tiedostoon.
 6. Taski on siirretty backlogissa DONE-sarakkeeseen.
+7. Taskin suoritus on lisätty burndown-listalle.
+
+#### Parit tarkistusta varten
+
+Sami & Ossi
+
+Sonja & dennis
+
+Atte & Lauri
