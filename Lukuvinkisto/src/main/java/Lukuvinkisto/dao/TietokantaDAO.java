@@ -55,18 +55,18 @@ public class TietokantaDAO {
      *
      * @param title kirjan nimi
      * @param author kirjoittaja
-     * @param paged sivujen m‰‰r‰
+     * @param pages sivujen m‰‰r‰
      * @param genres listattavat genret
      * @param description kuvaus kirjasta
      * @return true: lis‰ys onnistui false: lis‰ys ep‰onnistui
      */
-    public boolean addBook(String title, String author, String paged, String genres, String description) {
+    public boolean addBook(String title, String author, String pages, String genres, String description) {
         try {
             Connection dM = createConnection();
-            PreparedStatement p = dM.prepareStatement("INSERT INTO Books(title, author, paged, genres, description) VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement p = dM.prepareStatement("INSERT INTO Books(title, author, pages, genres, description) VALUES (?, ?, ?, ?, ?)");
             p.setString(1, title);
             p.setString(2, author);
-            p.setString(3, paged);
+            p.setString(3, pages);
             p.setString(4, genres);
             p.setString(5, description);
             p.executeUpdate();
@@ -98,30 +98,6 @@ public class TietokantaDAO {
             return true;
         } catch (SQLException ex) {
             return false;
-        }
-    }
-
-    /**
-     * Listaa kaikki kirjat tietokannassa
-     *
-     * @return lista kirjoista aakkosj‰rjestyksess‰, null jos kirjojen haku ep‰onnistui
-     */
-    public ArrayList<String> listBooks() {
-        try {
-            ArrayList<String> toReturn = new ArrayList<>();
-            Connection dM = createConnection();
-            PreparedStatement p1 = dM.prepareStatement("SELECT B.title FROM Books B");
-            ResultSet r = p1.executeQuery();
-            ResultSetMetaData rmd = r.getMetaData();
-
-            while (r.next()) {
-                toReturn.add(r.getString(1));
-            }
-            dM.close();
-            Collections.sort(toReturn);
-            return toReturn;
-        } catch (SQLException ex) {
-            return null;
         }
     }
 
