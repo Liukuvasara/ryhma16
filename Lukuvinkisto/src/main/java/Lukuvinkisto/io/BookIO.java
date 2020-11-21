@@ -47,12 +47,12 @@ public class BookIO implements MediaInterface {
     
     @Override
     public Book NewTip(InputInterface inputIO) {
-        System.out.println("Lisätään uusi kirja");
-        System.out.println("Anna kirjan otsikko: ");
+        inputIO.println("Lisätään uusi kirja");
+        inputIO.println("Anna kirjan otsikko: ");
         String title = inputIO.readInput();
-        System.out.println("Anna kirjan tekijä (Sukunimi, Etunimi): ");
+        inputIO.println("Anna kirjan tekijä (Sukunimi, Etunimi): ");
         String author = inputIO.readInput();
-        System.out.println("Anna kirjan sivumäärä: ");
+        inputIO.println("Anna kirjan sivumäärä: ");
         int pages = Integer.parseInt(inputIO.readInput());
         Book book = new Book(title, author, pages);
         return book;

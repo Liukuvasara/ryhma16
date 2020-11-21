@@ -20,9 +20,8 @@ public class Main {
         dbFile.createFile(DB_FILENAME);
         TietokantaDAO db = new TietokantaDAO(DB_FILENAME);
         
-        InputIO.printGuide();
-        
         InputIO io = new InputIO(new BookIO(db));
+        io.printGuide();
         
         while (true){
             

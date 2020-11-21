@@ -15,4 +15,5 @@ public interface InputInterface {
 
     String readInput();
     
+    void println(String text);
 }

@@ -23,9 +23,15 @@ public class InputIO implements InputInterface {
     private static final String GUIDE_COMMAND = "ohjeet";
     
     private MediaInterface bookIO;
+    private InputInterface inputIO;
     
     public InputIO(MediaInterface bIO) {
         bookIO = bIO;
+        inputIO = this;
+    }
+    public InputIO(MediaInterface bIO, InputInterface iIO) {
+        bookIO = bIO;
+        inputIO = iIO;
     }
     
     @Override
@@ -35,7 +41,7 @@ public class InputIO implements InputInterface {
     @Override
     public void manageInput(String[] input){
         if (!validateInput(input)) {
-            System.out.println("Ei hyväksyttävä syote.");
+            inputIO.println("Ei hyväksyttävä syote.");
             return;
         }
         if (input[0].toLowerCase().equals(GET_COMMAND)){
@@ -46,24 +52,24 @@ public class InputIO implements InputInterface {
                 books = bookIO.fetch(input[2]);
             }
             if(!books.isEmpty()){
-                books.forEach(book -> System.out.println(book.toString()));
+                books.forEach(book -> inputIO.println(book.toString()));
             } else {
-                System.out.println("Hakutermilla ei loydetty yhtaan kirjoja.");
+                inputIO.println("Hakutermilla ei loydetty yhtaan kirjoja.");
             }
         } else if (input[0].toLowerCase().equals(ADD_COMMAND)){
             if(input[1].toLowerCase().equals("kirja")){
-                Book book = bookIO.NewTip((InputInterface) this);
+                Book book = bookIO.NewTip(inputIO);
                 bookIO.add(book);
             }
         } else if (input[0].toLowerCase().equals(GUIDE_COMMAND)) {
             printGuide();
         } else {
-            System.out.println("Ei hyväksyttävä syote.");
+            inputIO.println("Ei hyväksyttävä syote.");
         }
     }
     
-    public static void printGuide(){
-        System.out.println("\nKOMENNOT\n" + GUIDE_COMMAND + " - tulostaa ohjeet\n" + GET_COMMAND + " - tarkistaa, onko nimellä tallennettu lukuvinkkiä\n" + ADD_COMMAND + " - lisää uuden lukuvinkin");
+    public void printGuide(){
+        inputIO.println("\nKOMENNOT\n" + GUIDE_COMMAND + " - tulostaa ohjeet\n" + GET_COMMAND + " - tarkistaa, onko nimellä tallennettu lukuvinkkiä\n" + ADD_COMMAND + " - lisää uuden lukuvinkin");
     }
     private static boolean validateInput(String[] input){
         return 
@@ -71,6 +77,15 @@ public class InputIO implements InputInterface {
                 (((input.length == 3 && input[0].toLowerCase().equals(GET_COMMAND)) ||
                 (input.length == 2 && input[0].toLowerCase().equals(ADD_COMMAND))) 
                 && (input[1].toLowerCase().equals("kirja")));
+    }
+
+    @Override
+    public void println(String text) {
+        System.out.println(text);
+    }
+    
+    public InputInterface getInputIO(){
+        return inputIO;
     }
     
 }
