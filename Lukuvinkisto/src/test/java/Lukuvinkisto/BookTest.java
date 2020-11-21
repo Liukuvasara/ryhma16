@@ -1,6 +1,7 @@
 package Lukuvinkisto;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -29,6 +30,7 @@ public class BookTest {
         ArrayList books = new ArrayList<Book>();
         books.add(new Book("Linnunradan käsikirja liftareille", "Adams, Douglas", 203));
         books.add(new Book("Maailmanlopun ravintola", "Adams, Douglas", 222));
+        Collections.sort(books);
         assertEquals(books.get(0).toString(), "Adams, Douglas : Linnunradan käsikirja liftareille. sivumäärä: 203");
     }
 

@@ -6,8 +6,10 @@
 package lukuvinkisto.io;
 
 import Lukuvinkisto.Book;
+import Lukuvinkisto.dao.TietokantaDAO;
 import Lukuvinkisto.io.InputInterface;
 import Lukuvinkisto.io.MediaInterface;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,6 +17,11 @@ import java.util.List;
  * @author Sami
  */
 public class BookIO implements MediaInterface {
+    TietokantaDAO db;
+
+    public BookIO(TietokantaDAO db) {
+        this.db = db;
+    }
     
     /** Fetches all books stored in memory
      *
@@ -22,7 +29,9 @@ public class BookIO implements MediaInterface {
      */
     @Override
     public List<Book> fetch(){
-        return null;
+        List<Book> books=db.listBooks();
+        Collections.sort(books);
+        return books;
     }
 
     /** Fetches all books from the database witch match given input.
@@ -50,7 +59,7 @@ public class BookIO implements MediaInterface {
     
     @Override
     public void add(Book book){
-        
+        db.addBook(book.getTitle(), book.getAuthor(), String.valueOf(book.getPages()), "", "");
     }
 
 }

@@ -5,14 +5,17 @@
  */
 package Lukuvinkisto.dao;
 
+import Lukuvinkisto.Book;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -51,14 +54,14 @@ public class TietokantaDAO {
     }
 
     /**
-     * lis‰‰ kirja tietokantaan
+     * lis√§√§ kirja tietokantaan
      *
      * @param title kirjan nimi
      * @param author kirjoittaja
-     * @param pages sivujen m‰‰r‰
+     * @param pages sivujen m√§√§r√§
      * @param genres listattavat genret
      * @param description kuvaus kirjasta
-     * @return true: lis‰ys onnistui false: lis‰ys ep‰onnistui
+     * @return true: lis√§ys onnistui false: lis√§ys ep√§onnistui
      */
     public boolean addBook(String title, String author, String pages, String genres, String description) {
         try {
@@ -77,11 +80,28 @@ public class TietokantaDAO {
         }
     }
 
+    public List<Book> listBooks() {
+        try {
+            Connection dM = createConnection();
+            PreparedStatement p1 = dM.prepareStatement("SELECT * FROM Books");
+            ResultSet r = p1.executeQuery();
+            List<Book> books = new ArrayList<Book>();
+            while (r.next()) {
+                books.add(new Book(r.getString("title"), r.getString("author"), r.getInt("pages")));
+            }
+            dM.close();
+            return books;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return null;
+        }
+    }    
+    
     /**
      * poista kirja tietokannasta
      *
      * @param title kirjan nimi
-     * @return true: kirjan poisto onnistui false: kirjan poisto ep‰onnisti
+     * @return true: kirjan poisto onnistui false: kirjan poisto ep√§onnisti
      */
     public boolean removeBook(String title) {
         try {
@@ -102,9 +122,9 @@ public class TietokantaDAO {
     }
 
     /**
-     * Palauttaa Kirjojen lukum‰‰r‰n tietokannassa
+     * Palauttaa Kirjojen lukum√§√§r√§n tietokannassa
      *
-     * @return kirjojen lukum‰‰r‰ tietokannassa (numerona), -1 = jotain meni vikaan
+     * @return kirjojen lukum√§√§r√§ tietokannassa (numerona), -1 = jotain meni vikaan
      */
     public int numberOfBooks() {
         try {

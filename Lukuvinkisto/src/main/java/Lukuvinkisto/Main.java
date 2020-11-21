@@ -7,7 +7,7 @@ import lukuvinkisto.io.BookIO;
 import lukuvinkisto.io.InputIO;
 
 public class Main {
-
+    private static final String DB_FILENAME="Lukuvinkisto";
     /**
      * @param args the command line arguments
      */
@@ -17,9 +17,13 @@ public class Main {
     }
     
     public static void run(){
+        TiedostoDAO dbFile = new TiedostoDAO();
+        dbFile.createFile(DB_FILENAME);
+        TietokantaDAO db = new TietokantaDAO(DB_FILENAME);
+        
         InputIO.printGuide();
         
-        InputIO io = new InputIO(new BookIO());
+        InputIO io = new InputIO(new BookIO(db));
         
         while (true){
             

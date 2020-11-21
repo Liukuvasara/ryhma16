@@ -24,9 +24,9 @@ Ohjelma toimii komentoriviltä. Käytössä ovat tällä hetkellä komennot:
 
 ohjeet - Tulostaa käytettävissä olevat komennot.
 
-lisaa - Lisää kirjastoon uuden kirjavinkin.
+lisaa kirja - Lisää kirjastoon uuden kirjavinkin.
 
-hae - Hakee kirjastosta kirjavinkin nimellä.
+hae kirja all - Hakee kirjaston kaikki kirjat.
 
 ### Definition of done
 
