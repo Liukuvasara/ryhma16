@@ -1,5 +1,8 @@
 package Lukuvinkisto;
 
+import Lukuvinkisto.dao.TiedostoDAO;
+import Lukuvinkisto.dao.TietokantaDAO;
+import java.util.ArrayList;
 import lukuvinkisto.io.BookIO;
 import lukuvinkisto.io.InputIO;
 
@@ -14,18 +17,20 @@ public class Main {
     }
     
     public static void run(){
+        InputIO.printGuide();
         
-        System.out.println("\nKOMENNOT\nohjeet - tulostaa ohjeet\nhae - tarkistaa, onko nimellä tallennettu lukuvinkkiä\nlisaa - lisää uuden lukuvinkin");
-                
+        InputIO io = new InputIO(new BookIO());
+        
         while (true){
             
             System.out.println("\nAnna syöte: ");
-            String[] input = InputIO.readInput().split(" ", 3);
+            String[] input = io.readInput().split(" ", 3);
             
             if(input[0].equals("")) break;
-            else InputIO.manageInput(input);
+            else io.manageInput(input);
             
         }
+
     }
     
     

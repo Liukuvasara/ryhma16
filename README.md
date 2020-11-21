@@ -37,3 +37,31 @@ Taski on suoritettu "definition of donen" tasolla, kun
 4. Toinen henkilö on tarkastanut ko. testit. Testit toimivat odotetusti.
 5. Koodiin liittyvä dokumentaatio on lisätty  ohjelman ohjeisiin ja tarvittaessa README-tiedostoon.
 6. Taski on siirretty backlogissa DONE-sarakkeeseen.
+7. Taskin suoritus on lisätty burndown-listalle.
+
+#### Parit tarkistusta varten
+
+Sami & Ossi
+
+Sonja & dennis
+
+Atte & Lauri
+
+#### Tietokannan käyttö
+
+Käyttöönotto:
+
+Jos ei vielä olemassa tiedostoa tietokannalle: (eli periaatteessa jos käsitellään vaan samaa niin tämä askel ensimmäisen kerran jälkeen tarpeeton, mutta vaaraton)
+
+TiedostoDAO annaNimi = new TiedostoDAO();
+annaNimi.createFile("tähän haluttu tiedoston nimi tietokannalle")
+
+Tietokannan kanssa leikkiminen siitä lähtien:
+
+TietokantaDAO käsittelijä = new TietokantaDAO("tähän juuri tehty/jo aikaisemmin tehty tiedoston nimi");
+
+---------------------------
+Tosiaan, lisäys pitää tehdä omana asiana / ei käytä kirja olentoa.
+Listaus palauttaa tällä hetkellä vaan string listan kirjojen nimistä - miten halutaan muokata?
+
+
