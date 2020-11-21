@@ -85,7 +85,7 @@ public class TietokantaDAO {
             Connection dM = createConnection();
             PreparedStatement p1 = dM.prepareStatement("SELECT * FROM Books");
             ResultSet r = p1.executeQuery();
-            List<Book> books = new ArrayList<Book>();
+            List<Book> books = new ArrayList<>();
             while (r.next()) {
                 books.add(new Book(r.getString("title"), r.getString("author"), r.getInt("pages")));
             }
@@ -93,7 +93,7 @@ public class TietokantaDAO {
             return books;
         } catch (SQLException ex) {
             System.out.println(ex);
-            return null;
+            return new ArrayList<>();
         }
     }    
     

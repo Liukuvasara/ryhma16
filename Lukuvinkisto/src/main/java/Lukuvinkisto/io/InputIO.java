@@ -39,15 +39,16 @@ public class InputIO implements InputInterface {
             return;
         }
         if (input[0].toLowerCase().equals(GET_COMMAND)){
-            System.out.println("Tämän pitäisi tarkastaa että järjestelmässä on " + input[1] + " nimellä '" + input[2]);
             List<Book> books;
-            if(input[2].equals("all")) {
+            if(input[2].equals("kaikki")) {
                 books = bookIO.fetch();
             } else {
                 books = bookIO.fetch(input[2]);
             }
-            if(books != null){
+            if(!books.isEmpty()){
                 books.forEach(book -> System.out.println(book.toString()));
+            } else {
+                System.out.println("Hakutermilla ei loydetty yhtaan kirjoja.");
             }
         } else if (input[0].toLowerCase().equals(ADD_COMMAND)){
             if(input[1].toLowerCase().equals("kirja")){

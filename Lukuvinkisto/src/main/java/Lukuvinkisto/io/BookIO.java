@@ -11,6 +11,7 @@ import Lukuvinkisto.io.InputInterface;
 import Lukuvinkisto.io.MediaInterface;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -41,7 +42,7 @@ public class BookIO implements MediaInterface {
      */
     @Override
     public List<Book> fetch(String input){
-        return null;
+        return fetch().stream().filter(book -> book.getAuthor().contains(input) || book.getTitle().contains(input)).collect(Collectors.toList());
     }
     
     @Override

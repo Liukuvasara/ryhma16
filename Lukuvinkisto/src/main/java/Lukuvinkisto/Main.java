@@ -2,7 +2,6 @@ package Lukuvinkisto;
 
 import Lukuvinkisto.dao.TiedostoDAO;
 import Lukuvinkisto.dao.TietokantaDAO;
-import java.util.ArrayList;
 import lukuvinkisto.io.BookIO;
 import lukuvinkisto.io.InputIO;
 
