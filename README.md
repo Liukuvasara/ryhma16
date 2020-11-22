@@ -26,7 +26,9 @@ ohjeet - Tulostaa käytettävissä olevat komennot.
 
 lisaa kirja - Lisää kirjastoon uuden kirjavinkin.
 
-hae kirja all - Hakee kirjaston kaikki kirjat.
+hae kirja HAKUSANA - hakee kirjaa tietyllä termillä.
+
+hae kirja kaikki - Hakee kirjaston kaikki kirjat.
 
 ### Definition of done
 
@@ -63,5 +65,3 @@ TietokantaDAO käsittelijä = new TietokantaDAO("tähän juuri tehty/jo aikaisem
 ---------------------------
 Tosiaan, lisäys pitää tehdä omana asiana / ei käytä kirja olentoa.
 Listaus palauttaa tällä hetkellä vaan string listan kirjojen nimistä - miten halutaan muokata?
-
-

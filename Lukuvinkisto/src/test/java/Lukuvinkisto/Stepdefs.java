@@ -2,6 +2,7 @@ package Lukuvinkisto;
 
 import Lukuvinkisto.io.InputStub;
 import Lukuvinkisto.io.MediaStub;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -14,29 +15,35 @@ public class Stepdefs {
     Book book;
     InputIO inputIO;
     Queue<String> inputs;
+        
+//    @Before
+//    public void setup() {
+//        inputs = new ArrayDeque();
+//        inputIO = new InputIO(new MediaStub(), new InputStub(inputs));
+//    }
     
-    @Given("Book is initialized")
-    public void bookIsInitialized() {
-        book = new Book("Testi", "Testinen",77);
+    @Given("Book is initialized with title {string} and author {string} and page count {int}")
+    public void bookIsInitialized(String title, String author, int pagecount) {
+        book = new Book(title, author,pagecount);
     }
-    
-    @Given("{String} is inputted")
-    public void firstInput(String val) {
-        inputs = new ArrayDeque();
-        inputIO = new InputIO(new MediaStub(), new InputStub(inputs));
-        inputs.add(val);
-    }
-    @When("book with name of {String}, author of {String} and {int} pages is added")
-    public void bookInputted(String name, String author, int pages){
-        inputs.add(name);
-        inputs.add(author);
-        inputs.add(pages + "");
-    }
-    @When("{String} is inputted next")
-    public void thenInputted(String val){
-        inputs.add(val);
-    }
-    
+//    
+//    @Given("{String} is inputted")
+//    public void firstInput(String val) {
+//        inputs = new ArrayDeque();
+//        inputIO = new InputIO(new MediaStub(), new InputStub(inputs));
+//        inputs.add(val);
+//    }
+//    @When("book with name of {String}, author of {String} and {int} pages is added")
+//    public void bookInputted(String name, String author, int pages){
+//        inputs.add(name);
+//        inputs.add(author);
+//        inputs.add(pages + "");
+//    }
+//    @When("{String} is inputted next")
+//    public void thenInputted(String val){
+//        inputs.add(val);
+//    }
+//    
     
     @Then("the author should be {string}")
     public void theAuthorShouldBe(String val) {
@@ -53,11 +60,12 @@ public class Stepdefs {
         assertEquals(val, book.getPages());
     }
     
-    @Then("the system prints out {String}")
-    public void checkPrint(String val){
-        assertEquals(val,((InputStub)inputIO.getInputIO()).getLastPrint());
-    }
-    
-    
 
+//    @Then("the system prints out {String}")
+//    public void checkPrint(String val){
+//        assertEquals(val, ((InputStub)inputIO.getInputIO()).getLastPrint());
+//    }
+//    
+
+    
 }
