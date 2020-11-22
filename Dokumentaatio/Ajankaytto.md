@@ -21,6 +21,6 @@
 |su|	Sonja	|Dokumentaatiota	|1|
 
 
-![EkaTunnit.jpg](https://github.com/vuorenkoski/ryhma16/Dokumentaatio/kuvat/EkaTunnit.jpg)
+![EkaTunnit.jpg](https://github.com/vuorenkoski/ryhma16/blob/main/Dokumentaatio/kuvat/EkaTunnit.jpg)
 
-![EkaTaskit.jpg](https://github.com/vuorenkoski/ryhma16/Dokumentaatio/kuvat/EkaTaskit.jpg)
+![EkaTaskit.jpg](https://github.com/vuorenkoski/ryhma16/blob/main/Dokumentaatio/kuvat/EkaTaskit.jpg)
