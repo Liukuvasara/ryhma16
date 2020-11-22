@@ -8,6 +8,9 @@ Lisää tehdyt taskit Seuranta-välilehdelle.
 
 [Burndown-kirjanpito](https://drive.google.com/file/d/1j_Juq5yFYapAQBtRJbpEmEyYTJ6UJzF-/edit)
 
+### Tuntikirjanpito
+[Ajankäyttö)(https://github.com/vuorenkoski/ryhma16/blob/main/Dokumentaatio/Ajankaytto.md)
+
 ### Backlogit
 
 [Sprintti 1](https://github.com/vuorenkoski/ryhma16/projects/2)
@@ -45,23 +48,7 @@ Taski on suoritettu "definition of donen" tasolla, kun
 
 Sami & Ossi
 
-Sonja & dennis
+Sonja & Dennis
 
 Atte & Lauri
 
-#### Tietokannan käyttö
-
-Käyttöönotto:
-
-Jos ei vielä olemassa tiedostoa tietokannalle: (eli periaatteessa jos käsitellään vaan samaa niin tämä askel ensimmäisen kerran jälkeen tarpeeton, mutta vaaraton)
-
-TiedostoDAO annaNimi = new TiedostoDAO();
-annaNimi.createFile("tähän haluttu tiedoston nimi tietokannalle")
-
-Tietokannan kanssa leikkiminen siitä lähtien:
-
-TietokantaDAO käsittelijä = new TietokantaDAO("tähän juuri tehty/jo aikaisemmin tehty tiedoston nimi");
-
----------------------------
-Tosiaan, lisäys pitää tehdä omana asiana / ei käytä kirja olentoa.
-Listaus palauttaa tällä hetkellä vaan string listan kirjojen nimistä - miten halutaan muokata?
