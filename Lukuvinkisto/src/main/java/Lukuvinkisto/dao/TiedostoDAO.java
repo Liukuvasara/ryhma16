@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- *Tiedoston hallintaa: t‰m‰ muoto, koska testaus/tietokanta/mahdollisesti useammat tietokannat?
+ *Tiedoston hallintaa: t√§m√§ muoto, koska testaus/tietokanta/mahdollisesti useammat tietokannat?
  * @author Juuri
  */
 public class TiedostoDAO {
