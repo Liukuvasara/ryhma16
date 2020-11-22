@@ -55,7 +55,7 @@ public class Stepdefs {
     
     @Then("the system prints out {String}")
     public void checkPrint(String val){
-        assertEquals(val, ((InputStub)inputIO.getInputIO()).getLastPrint());
+        assertEquals(val,((InputStub)inputIO.getInputIO()).getLastPrint());
     }
     
     
