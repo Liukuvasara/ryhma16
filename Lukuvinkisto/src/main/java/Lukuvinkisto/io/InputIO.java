@@ -69,8 +69,12 @@ public class InputIO implements InputInterface {
     }
     
     public void printGuide(){
-        inputIO.println("\nKOMENNOT\n" + GUIDE_COMMAND + " - tulostaa ohjeet\n" + GET_COMMAND + " - tarkistaa, onko nimellä tallennettu lukuvinkkiä\n" + ADD_COMMAND + " - lisää uuden lukuvinkin");
+        inputIO.println("\nKOMENNOT\n" + GUIDE_COMMAND + " - tulostaa ohjeet\n" 
+                + GET_COMMAND + " - tarkistaa, onko nimellä tallennettu lukuvinkkiä\n" 
+                + ADD_COMMAND + " - lisää uuden lukuvinkin\n"
+                + "Tyhjä syöte lopettaa ohjelman");
     }
+    
     private static boolean validateInput(String[] input){
         return 
                 (input.length == 1 && input[0].toLowerCase().equals(GUIDE_COMMAND)) ||
