@@ -10,7 +10,7 @@
 |ke|	Atte	|Github Actions	|2|
 |ke|	Atte	|cucumber	|2|
 |to|	Dennis	|Tietokannan luonti	|1|
-|pe|	Sonja	|Ohjeiden tulostaminen	|1|
+|pe|	Sonja	|Ohjeiden tulostaminen	|1,5|
 |pe|	Sami	|UI:n luonti	|2|
 |pe|	Dennis	|Tietokannan luonti (bugien selvitys)	|2|
 |la|	Ossi	|checkstyle	|2.5|
