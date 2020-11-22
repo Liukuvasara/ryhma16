@@ -9,7 +9,7 @@ Lisää tehdyt taskit Seuranta-välilehdelle.
 [Burndown-kirjanpito](https://drive.google.com/file/d/1j_Juq5yFYapAQBtRJbpEmEyYTJ6UJzF-/edit)
 
 ### Tuntikirjanpito
-[Ajankäyttö)(https://github.com/vuorenkoski/ryhma16/blob/main/Dokumentaatio/Ajankaytto.md)
+[Ajankäyttö](https://github.com/vuorenkoski/ryhma16/blob/main/Dokumentaatio/Ajankaytto.md)
 
 ### Backlogit
 
