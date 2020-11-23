@@ -30,7 +30,7 @@ public class BookIO implements MediaInterface {
      */
     @Override
     public List<Book> fetch(){
-        List<Book> books=db.listBooks();
+        List<Book> books=db.listBooks(null);
         Collections.sort(books);
         return books;
     }
@@ -42,7 +42,9 @@ public class BookIO implements MediaInterface {
      */
     @Override
     public List<Book> fetch(String input){
-        return fetch().stream().filter(book -> book.getAuthor().contains(input) || book.getTitle().contains(input)).collect(Collectors.toList());
+        List<Book> books=db.listBooks(input);
+        Collections.sort(books);
+        return books;
     }
     
     @Override

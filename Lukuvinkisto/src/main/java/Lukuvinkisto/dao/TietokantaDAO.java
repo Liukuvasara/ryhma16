@@ -80,10 +80,18 @@ public class TietokantaDAO {
         }
     }
 
-    public List<Book> listBooks() {
+    public List<Book> listBooks(String searchTerm) {
         try {
             Connection dM = createConnection();
-            PreparedStatement p1 = dM.prepareStatement("SELECT * FROM Books");
+            PreparedStatement p1;
+            if (searchTerm==null) {
+                p1 = dM.prepareStatement("SELECT * FROM Books");
+            } else {
+                p1 = dM.prepareStatement("SELECT * FROM Books WHERE lower(title) LIKE ? OR lower(author) LIKE ?");
+                String term = "%"+searchTerm.toLowerCase()+"%";
+                p1.setString(1, term);
+                p1.setString(2, term);
+            }
             ResultSet r = p1.executeQuery();
             List<Book> books = new ArrayList<>();
             while (r.next()) {
