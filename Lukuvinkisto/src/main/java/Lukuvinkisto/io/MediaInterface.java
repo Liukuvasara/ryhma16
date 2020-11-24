@@ -17,6 +17,8 @@ public interface MediaInterface {
     Book NewTip(InputInterface inputIO);
 
     void add(Book book);
+
+    boolean remove(InputInterface inputIO);
     
     List<Book> fetch();
     

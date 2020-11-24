@@ -19,6 +19,7 @@ public class InputIO implements InputInterface {
     private static final Scanner SCANNER = new Scanner(System.in);
     
     private static final String ADD_COMMAND = "lisaa";
+    private static final String REMOVE_COMMAND = "poista";
     private static final String GET_COMMAND = "hae";
     private static final String GUIDE_COMMAND = "ohjeet";
     
@@ -61,6 +62,14 @@ public class InputIO implements InputInterface {
                 Book book = bookIO.NewTip(inputIO);
                 bookIO.add(book);
             }
+        } else if (input[0].toLowerCase().equals(REMOVE_COMMAND)){
+            if(input[1].toLowerCase().equals("kirja")){
+                if (bookIO.remove(inputIO)) {
+                    inputIO.println("Poisto onnistui");
+                } else {
+                    inputIO.println("Poisto epäonnistui");
+                }
+            }
         } else if (input[0].toLowerCase().equals(GUIDE_COMMAND)) {
             printGuide();
         } else {
@@ -73,6 +82,7 @@ public class InputIO implements InputInterface {
                 + GET_COMMAND + " kirja kaikki - hakee kaikki kirjaston kirjat\n" 
                 + GET_COMMAND + " kirja HAKUSANA - hakee kirjat hakusanalla\n" 
                 + ADD_COMMAND + " kirja - lisää uuden lukuvinkin\n"
+                + REMOVE_COMMAND + " kirja - poistaa lukuvinkin\n"
                 + "Tyhjä syöte lopettaa ohjelman.");
     }
     
@@ -80,7 +90,8 @@ public class InputIO implements InputInterface {
         return 
                 (input.length == 1 && input[0].toLowerCase().equals(GUIDE_COMMAND)) ||
                 (((input.length == 3 && input[0].toLowerCase().equals(GET_COMMAND)) ||
-                (input.length == 2 && input[0].toLowerCase().equals(ADD_COMMAND))) 
+                (input.length == 2 && input[0].toLowerCase().equals(ADD_COMMAND)) ||
+                (input.length == 2 && input[0].toLowerCase().equals(REMOVE_COMMAND))) 
                 && (input[1].toLowerCase().equals("kirja")));
     }
 
