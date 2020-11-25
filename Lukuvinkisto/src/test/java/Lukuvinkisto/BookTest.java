@@ -1,5 +1,6 @@
 package Lukuvinkisto;
 
+import Lukuvinkisto.media.Book;
 import java.util.ArrayList;
 import java.util.Collections;
 import org.junit.Test;
@@ -22,7 +23,7 @@ public class BookTest {
     @Test
     public void ReturnCorrectPages() {
         Book book = new Book("Linnunradan käsikirja liftareille", "Adams, Douglas", 203);
-        assertEquals(book.getPages(), 203);
+        assertEquals(book.getLength(), 203);
     }
 
     @Test

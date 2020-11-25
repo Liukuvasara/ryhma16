@@ -1,5 +1,6 @@
 package Lukuvinkisto;
 
+import Lukuvinkisto.control.InputManager;
 import Lukuvinkisto.dao.TiedostoDAO;
 import Lukuvinkisto.dao.TietokantaDAO;
 import lukuvinkisto.io.BookIO;
@@ -20,16 +21,16 @@ public class Main {
         dbFile.createFile(DB_FILENAME);
         TietokantaDAO db = new TietokantaDAO(DB_FILENAME);
         
-        InputIO io = new InputIO(new BookIO(db));
-        io.printGuide();
+        InputManager im = new InputManager(new BookIO(db), new InputIO());
+        im.printGuide();
         
         while (true){
             
             System.out.println("\nAnna syöte: ");
-            String[] input = io.readInput().split(" ", 3);
+            String[] input = im.getInputIO().readInput().split(" ", 3);
             
             if(input[0].equals("")) break;
-            else io.manageInput(input);
+            else im.manageInput(input);
             
         }
 

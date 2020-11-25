@@ -19,10 +19,6 @@ public class InputStub implements InputInterface {
     public String getLastPrint(){
         return lastPrint;
     }
-    @Override
-    public void manageInput(String[] input) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public String readInput() {

@@ -1,5 +1,6 @@
 package Lukuvinkisto;
 
+import Lukuvinkisto.media.Book;
 import Lukuvinkisto.io.InputStub;
 import Lukuvinkisto.io.MediaStub;
 import io.cucumber.java.Before;
@@ -57,7 +58,7 @@ public class Stepdefs {
 
     @Then("the pagecount should be {int}")
     public void thePagecountShouldBe(int val) {
-        assertEquals(val, book.getPages());
+        assertEquals(val, book.getLength());
     }
     
 

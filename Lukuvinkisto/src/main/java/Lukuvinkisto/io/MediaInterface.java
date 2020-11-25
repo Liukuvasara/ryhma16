@@ -5,7 +5,8 @@
  */
 package Lukuvinkisto.io;
 
-import Lukuvinkisto.Book;
+import Lukuvinkisto.media.Book;
+import Lukuvinkisto.media.Media;
 import java.util.List;
 
 /**
@@ -18,14 +19,14 @@ public interface MediaInterface {
 
     void add(Book book);
     
-    List<Book> fetch();
+    List<Media> fetch();
     
     /** Fetches all books from the database witch match given input.
      *
      * @param input Searches all works containing input string. Input string can be author part of, or whole name of the name of the book or author.
      * @return List of all results.
      */
-    List<Book> fetch(String input);
+    List<Media> fetch(String input);
     
 }
 

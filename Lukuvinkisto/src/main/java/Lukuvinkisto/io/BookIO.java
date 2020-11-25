@@ -5,10 +5,11 @@
  */
 package lukuvinkisto.io;
 
-import Lukuvinkisto.Book;
+import Lukuvinkisto.media.Book;
 import Lukuvinkisto.dao.TietokantaDAO;
 import Lukuvinkisto.io.InputInterface;
 import Lukuvinkisto.io.MediaInterface;
+import Lukuvinkisto.media.Media;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,10 +30,10 @@ public class BookIO implements MediaInterface {
      * @return List of all books
      */
     @Override
-    public List<Book> fetch(){
-        List<Book> books=db.listBooks(null);
-        Collections.sort(books);
-        return books;
+    public List<Media> fetch(){
+        List<Media> works=db.listBooks(null);
+        Collections.sort(works);
+        return works;
     }
 
     /** Fetches all books from the database witch match given input.
@@ -41,10 +42,10 @@ public class BookIO implements MediaInterface {
      * @return List of all results.
      */
     @Override
-    public List<Book> fetch(String input){
-        List<Book> books=db.listBooks(input);
-        Collections.sort(books);
-        return books;
+    public List<Media> fetch(String input){
+        List<Media> works=db.listBooks(input);
+        Collections.sort(works);
+        return works;
     }
     
     @Override
@@ -62,7 +63,7 @@ public class BookIO implements MediaInterface {
     
     @Override
     public void add(Book book){
-        db.addBook(book.getTitle(), book.getAuthor(), String.valueOf(book.getPages()), "", "");
+        db.addBook(book.getTitle(), book.getAuthor(), String.valueOf(book.getLength()), "", "");
     }
 
 }
