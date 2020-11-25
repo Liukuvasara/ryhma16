@@ -59,6 +59,17 @@ public class BookIO implements MediaInterface {
         Book book = new Book(title, author, pages);
         return book;
     }
+
+    @Override
+    public boolean remove(InputInterface inputIO) {
+        inputIO.println("poistetaan kirja");
+        inputIO.println("Anna kirjan otsikko: ");
+        String title = inputIO.readInput();
+        inputIO.println("Anna kirjan tekijä (Sukunimi, Etunimi): ");
+        String author = inputIO.readInput();
+        Book book = new Book(title, author, 0);
+        return db.removeBook(book);
+    }
     
     @Override
     public void add(Book book){
