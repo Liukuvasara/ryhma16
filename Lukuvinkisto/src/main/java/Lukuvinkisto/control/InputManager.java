@@ -19,6 +19,7 @@ public class InputManager {
     private static final String ADD_COMMAND = "lisaa";
     private static final String GET_COMMAND = "hae";
     private static final String GUIDE_COMMAND = "ohjeet";
+    private static final String REMOVE_COMMAND = "poista";
     
     private final MediaInterface mediaIO;
     private final InputInterface inputIO;
@@ -43,6 +44,9 @@ public class InputManager {
                 break;
             case GUIDE_COMMAND:
                 printGuide();
+                break;
+            case REMOVE_COMMAND:
+                manageDelete(input);
                 break;
             default:
                 inputIO.println("Ei hyväksyttävä syote.");
@@ -75,11 +79,22 @@ public class InputManager {
         }
     }
     
+    private void manageDelete(String[] input){
+        if(input[1].toLowerCase().equals("kirja")){
+                if (mediaIO.remove(inputIO)) {
+                    inputIO.println("Poisto onnistui");
+                } else {
+                    inputIO.println("Poisto ep�onnistui");
+                }
+            }
+    }
+    
     public void printGuide(){
         inputIO.println("\nKOMENNOT\nohjeet - tulostaa ohjeet\n" 
                 + GET_COMMAND + " kirja kaikki - hakee kaikki kirjaston kirjat\n" 
                 + GET_COMMAND + " kirja HAKUSANA - hakee kirjat hakusanalla\n" 
                 + ADD_COMMAND + " kirja - lisää uuden lukuvinkin\n"
+                + REMOVE_COMMAND + " kirja - poistaa lukuvinkin\n"
                 + "Tyhjä syöte lopettaa ohjelman.");
     }
     
@@ -87,7 +102,8 @@ public class InputManager {
         return 
                 (input.length == 1 && input[0].toLowerCase().equals(GUIDE_COMMAND)) ||
                 (((input.length == 3 && input[0].toLowerCase().equals(GET_COMMAND)) ||
-                (input.length == 2 && input[0].toLowerCase().equals(ADD_COMMAND))) 
+                (input.length == 2 && input[0].toLowerCase().equals(ADD_COMMAND))||
+                (input.length == 2 && input[0].toLowerCase().equals(REMOVE_COMMAND))) 
                 && (input[1].toLowerCase().equals("kirja")));
     }
 
