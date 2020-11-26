@@ -11,8 +11,6 @@ package Lukuvinkisto.io;
  */
 public interface InputInterface {
 
-    void manageInput(String[] input);
-
     String readInput();
     
     void println(String text);

@@ -5,7 +5,8 @@
  */
 package Lukuvinkisto.dao;
 
-import Lukuvinkisto.Book;
+import Lukuvinkisto.media.Book;
+import Lukuvinkisto.media.Media;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -80,7 +81,7 @@ public class TietokantaDAO {
         }
     }
 
-    public List<Book> listBooks(String searchTerm) {
+    public List<Media> listBooks(String searchTerm) {
         try {
             Connection dM = createConnection();
             PreparedStatement p1;
@@ -93,7 +94,7 @@ public class TietokantaDAO {
                 p1.setString(2, term);
             }
             ResultSet r = p1.executeQuery();
-            List<Book> books = new ArrayList<>();
+            List<Media> books = new ArrayList<>();
             while (r.next()) {
                 books.add(new Book(r.getString("title"), r.getString("author"), r.getInt("pages")));
             }

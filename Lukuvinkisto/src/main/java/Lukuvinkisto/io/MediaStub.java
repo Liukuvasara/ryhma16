@@ -5,13 +5,14 @@
  */
 package Lukuvinkisto.io;
 
-import Lukuvinkisto.Book;
+import Lukuvinkisto.media.Book;
+import Lukuvinkisto.media.Media;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class MediaStub implements MediaInterface {
-    private List<Book> tempMemory;
+    private List<Media> tempMemory;
     @Override
     public Book NewTip(InputInterface inputIO) {
         return new Book("test", "test", 10);
@@ -23,14 +24,14 @@ public class MediaStub implements MediaInterface {
     }
 
     @Override
-    public List<Book> fetch() {
-        List<Book> ret = new ArrayList<>();
+    public List<Media> fetch() {
+        List<Media> ret = new ArrayList<>();
         ret.add(new Book("test1", "test1", 10));
         return ret;
     }
 
     @Override
-    public List<Book> fetch(String input) {
+    public List<Media> fetch(String input) {
         return tempMemory;
     }
 
