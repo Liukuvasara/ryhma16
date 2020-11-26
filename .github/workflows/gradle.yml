@@ -26,3 +26,7 @@ jobs:
       run: Lukuvinkisto/gradlew -p Lukuvinkisto test
     - name: checkstyle
       run: Lukuvinkisto/gradlew -p Lukuvinkisto checkstyleMain
+    - name: Code coverage report
+      run: Lukuvinkisto/gradlew -p Lukuvinkisto jacocoTestReport
+    - name: Data to codecov
+      run: bash <(curl -s https://codecov.io/bash)
