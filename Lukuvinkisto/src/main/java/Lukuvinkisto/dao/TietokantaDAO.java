@@ -101,7 +101,6 @@ public class TietokantaDAO {
             dM.close();
             return books;
         } catch (SQLException ex) {
-            System.out.println(ex);
             return new ArrayList<>();
         }
     }    
@@ -112,19 +111,18 @@ public class TietokantaDAO {
      * @param title kirjan nimi
      * @return true: kirjan poisto onnistui false: kirjan poisto epäonnisti
      */
-    public boolean removeBook(String title) {
+    public boolean removeBook(Book book) {
         try {
             Connection dM = createConnection();
-            PreparedStatement p1 = dM.prepareStatement("SELECT id FROM Books WHERE title=?");
-            p1.setString(1, title);
-            ResultSet r = p1.executeQuery();
-            Integer termID = r.getInt("id");
-
-            PreparedStatement p2 = dM.prepareStatement("DELETE FROM Books WHERE id=?");
-            p2.setInt(1, r.getInt("id"));
-            p2.executeUpdate();
+            PreparedStatement p1 = dM.prepareStatement("DELETE FROM Books WHERE title=? AND author=?");
+            p1.setString(1, book.getTitle());
+            p1.setString(2, book.getAuthor());
+            int r = p1.executeUpdate();
             dM.close();
-            return true;
+            if (r==1) {
+                return true;
+            }
+            return false;
         } catch (SQLException ex) {
             return false;
         }

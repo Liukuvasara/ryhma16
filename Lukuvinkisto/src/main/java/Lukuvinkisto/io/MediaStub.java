@@ -34,5 +34,11 @@ public class MediaStub implements MediaInterface {
     public List<Media> fetch(String input) {
         return tempMemory;
     }
+
+    @Override
+    public boolean remove(InputInterface inputIO) {
+        tempMemory.remove(new Book("test", "test", 10));
+        return true;
+    }
     
 }

@@ -18,11 +18,12 @@ import java.util.Scanner;
 public class InputIO implements InputInterface {
     private static final Scanner SCANNER = new Scanner(System.in);
     
+
     @Override
     public String readInput(){
         return SCANNER.nextLine();
     }
-    
+
     @Override
     public void println(String text) {
         System.out.println(text);
