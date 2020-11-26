@@ -1,5 +1,7 @@
 # Ryhma16
 ![Github Actions](https://github.com/vuorenkoski/ryhma16/workflows/Automaattitesti/badge.svg)
+[![codecov](https://codecov.io/gh/vuorenkoski/ryhma16/branch/main/graph/badge.svg?token=N8XK23PROJ)](https://codecov.io/gh/vuorenkoski/ryhma16)
+cf6297e1-0ebb-43d9-8151-9388d4c6c755
 
 ## Dokumentit
 
@@ -51,4 +53,3 @@ Sami & Ossi
 Sonja & Dennis
 
 Atte & Lauri
-
