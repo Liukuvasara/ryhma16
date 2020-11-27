@@ -1,4 +1,4 @@
-package Lukuvinkisto;
+package Main;
 
 import Lukuvinkisto.control.InputManager;
 import Lukuvinkisto.dao.TiedostoDAO;
